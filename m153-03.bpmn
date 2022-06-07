@@ -1,0 +1,54 @@
+-- Create Table Kunden
+CREATE TABLE KUNDE (
+                     KundeID int AUTO_INCREMENT NOT NULL,
+                     CONSTRAINT PK_KundeID PRIMARY KEY (KundeID));
+CREATE TABLE LIEFERKOSTEN (
+                            LieferkostenID smallint AUTO_INCREMENT NOT NULL,
+                            CONSTRAINT PK_LieferkostenID PRIMARY KEY (LieferkostenID));
+CREATE TABLE LIEFERANT (
+                         LieferantID smallint AUTO_INCREMENT NOT NULL,
+                         CONSTRAINT PK_LieferantID PRIMARY KEY (LieferantID));
+CREATE TABLE INTERESSENT (
+                           InteressentID smallint AUTO_INCREMENT NOT NULL,
+                           CONSTRAINT PK_InteressentID PRIMARY KEY (InteressentID));
+CREATE TABLE FLYER (
+                     FlyerID smallint AUTO_INCREMENT NOT NULL,
+                     CONSTRAINT PK_FlyerID PRIMARY KEY (FlyerID));
+
+CREATE TABLE ADRESSEN (
+                        AdresseID int AUTO_INCREMENT NOT NULL,
+                        Name varchar (255),
+                        Vorname varchar (255),
+                        Strasse varchar (255),
+                        Ort varchar (255),
+                        PLZ int (4),
+                        Kontakttyp varchar (255),
+                        Kontakt varchar (255),
+                        Hausnummer int (4),
+                        CONSTRAINT PK_AdresseID PRIMARY KEY (AdresseID));
+)
+
+CREATE TABLE KUNDE (
+                     AdresseID int AUTO_INCREMENT NOT NULL,
+                     LieferkostenID int AUTO_INCEREMENT NOT NULL,
+                     Rabatt DOUBLE,
+                     Liefersperre BOOLEAN,
+                     MvStNr DOUBLE,
+                     Ertragskonto DOUBLE,
+                     CONSTRAINT PK_AdresseID PRIMARY KEY (AdresseID));
+                     CONSTRAINT FK_LieferkostenID FOREIGN KEY (LieferkostenID));
+)
+
+CREATE TABLE LIEFERANT (
+                     AdresseID int AUTO_INCREMENT NOT NULL,
+                     MvStNr DOUBLE,
+                     Aufwandkonto DOUBLE,
+                     CONSTRAINT PK_AdresseID PRIMARY KEY (AdresseID));
+)
+
+CREATE TABLE INTERESSENT (
+                        AdresseID int AUTO_INCREMENT NOT NULL,
+                        KommtVon --kp was hie chunnt
+                        CONSTRAINT PK_AdresseID PRIMARY KEY (AdresseID));
+)
+
